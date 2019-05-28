@@ -71,7 +71,13 @@ public class Cdeck
   }
   public void disgard(ArrayList<Cards> hand, int indx)
   {
-    disgardPile(hand, indx);
+     disgardPile(hand, indx);
   }
-  
+  public boolean checkCard(Cards onDisgard, Cards putIn)
+  {
+    boolean isGood = false;
+    if(onDisgard.getNumber() == putIn.getNumber() || onDisgard.getColour().equals(putIn.getColour()))
+    isGood = true;
+    return isGood;
+}
 }
