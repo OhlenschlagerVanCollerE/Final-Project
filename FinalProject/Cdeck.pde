@@ -67,33 +67,33 @@ public class Cdeck
         } else if (k==12)
         {
           if (i==0)
-            tempDeck.add( new Cards(j, "red +2"));
+            tempDeck.add( new Cards(k, "red +2"));
           if (i==1)
-            tempDeck.add( new Cards(j, "yellow +2"));
+            tempDeck.add( new Cards(k, "yellow +2"));
           if (i==2)
-            tempDeck.add( new Cards(j, "green +2"));
+            tempDeck.add( new Cards(k, "green +2"));
           if (i==3)
-            tempDeck.add( new Cards(j, "blue +2"));
+            tempDeck.add( new Cards(k, "blue +2"));
         } else if (k==11)
         {
           if (i==0)
-            tempDeck.add( new Cards(j, "red reverse"));
+            tempDeck.add( new Cards(k, "red reverse"));
           if (i==1)
-            tempDeck.add( new Cards(j, "yellow reverse"));
+            tempDeck.add( new Cards(k, "yellow reverse"));
           if (i==2)
-            tempDeck.add( new Cards(j, "green reverse"));
+            tempDeck.add( new Cards(k, "green reverse"));
           if (i==3)
-            tempDeck.add( new Cards(j, "blue reverse"));
+            tempDeck.add( new Cards(k, "blue reverse"));
         } else if (k==10)
         {
           if (i==0)
-            tempDeck.add( new Cards(j, "red skip"));
+            tempDeck.add( new Cards(k, "red skip"));
           if (i==1)
-            tempDeck.add( new Cards(j, "yellow skip"));
+            tempDeck.add( new Cards(k, "yellow skip"));
           if (i==2)
-            tempDeck.add( new Cards(j, "green skip"));
+            tempDeck.add( new Cards(k, "green skip"));
           if (i==3)
-            tempDeck.add( new Cards(j, "blue skip"));
+            tempDeck.add( new Cards(k, "blue skip"));
         } else {
           if (i==0)
             tempDeck.add( new Cards(k, "red"));
@@ -133,7 +133,7 @@ public class Cdeck
   public boolean checkCard(Cards onDisgard, Cards putIn)
   {
     boolean isGood = false;
-    if (onDisgard.getNumber() == putIn.getNumber() || onDisgard.getColour().contains(putIn.getColour()) || putIn.getColour().contains(onDisgard.getColour()))
+    if (onDisgard.getNumber() == putIn.getNumber() || onDisgard.getColour().contains(putIn.getColour()) || putIn.getColour().contains(onDisgard.getColour()) || onDisgard.getColour().contains("wild") || putIn.getColour().contains("wild"))
       isGood = true;
     return isGood;
   }

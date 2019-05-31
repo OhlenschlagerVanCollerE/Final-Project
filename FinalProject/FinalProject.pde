@@ -12,6 +12,7 @@ boolean endGame = false;
 boolean disgard = false;
 int j=0;
 int u=0;
+boolean skip = false;
 void setup() {
   atmp.setDeck();
   atmp.shuffleDeck(deck);
@@ -45,6 +46,7 @@ void draw() {
           possible = new ArrayList<Integer>();
           isFinished = true;
           disgard = false;
+          
         }
         if (j>80)
         {
@@ -59,6 +61,9 @@ void draw() {
         }
         j++;
       } else {
+        if(skip == false)
+        {
+
         endGame();
         deckReset();
         currentCard();
@@ -73,7 +78,11 @@ void draw() {
           pTurn = 1;
         }
       }
+      
+      }
     } else {
+      if(skip == false)
+      {
       endGame();
       deckReset();
 
@@ -89,11 +98,13 @@ void draw() {
         Cards disg = atmp.getDisgardPile().get(atmp.getDisgardPile().size()-1);
         if (atmp.checkCard( disg, temp))
         {
+          additionalEffects(temp);
           atmp.disgard(multi.get(pTurn).getHand(), i);
           System.out.print("\n\n\n\n\n\n\nCurrent Card: ");
           currentCard();
           isFinished = false;
           pTurn = 0;
+          
           return;
         }
       }
@@ -108,6 +119,8 @@ void draw() {
         isFinished = false;
         pTurn =0;
       }
+      }
+      
     }
   }
   endGame();
@@ -165,22 +178,27 @@ void additionalEffects(Cards current)
     multi.get(effectOn).drawCard(deck);
     multi.get(effectOn).drawCard(deck);
     multi.get(effectOn).drawCard(deck);
+    skip = true;
     //change color
   }
   if(check.getNumber() == 13)
   {
     //change color
+    skip = true;
   }
   if(check.getNumber() == 12)
   {
     multi.get(effectOn).drawCard(deck);
     multi.get(effectOn).drawCard(deck);
+    skip = true;
   }
   if(check.getNumber() == 11)
   {
+    skip = true;
   }
   if(check.getNumber() == 10)
   {
+    skip = true;
   }
 }
 
